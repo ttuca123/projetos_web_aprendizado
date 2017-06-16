@@ -8,6 +8,7 @@
 		public $latitude;
 		public $longitude;
 		public $avaliacao;
+		public $descricao;
 	}
 
 ?>

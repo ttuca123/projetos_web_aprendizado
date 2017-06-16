@@ -38,7 +38,7 @@ tr:nth-child(even) {
 
 
 
-	$SQL = "SELECT seq_local, nome, fone, latitude, longitude, avaliacao FROM local";	
+	$SQL = "SELECT seq_local, nome, fone, latitude, longitude, avaliacao , descricao FROM local order by avaliacao desc, nome asc";	
 	$resultado = $link->query($SQL);
 	
 	
@@ -54,10 +54,11 @@ tr:nth-child(even) {
 
 		<th>Sequencial</th>
 		<th>Nome</th>
+		<th>Descricao</th>
 		<th>Telefone</th>
 		<th>Latitude</th>
 		<th>Longitude</th>
-		<th>Avaliacao</th>
+		<th>Avaliacao</th>		
 	<?php
 		  while($row = $resultado->fetch_assoc()) {
 		$retorno = array($row["seq_local"], $row["nome"], $row["fone"],
@@ -72,6 +73,9 @@ tr:nth-child(even) {
 			<td>
 				<?php echo $row["nome"] ?>
 	  		</td>
+	  		<td>
+				 <?php echo $row["descricao"] ?>
+				</td>
 	  			  			
 				<td>
 					<?php echo $row["fone"] ?>
@@ -88,6 +92,7 @@ tr:nth-child(even) {
 				<td>
 				 <?php echo $row["avaliacao"] ?>
 				</td>
+
 	  		</tr>  			
 			
 

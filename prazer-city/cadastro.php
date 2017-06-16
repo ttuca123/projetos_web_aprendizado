@@ -35,6 +35,16 @@ tr:nth-child(even) {
 		  </tr>
 		  <tr>
 		     <td>
+		     Decricao: 
+		     </td>
+			<td>
+				<input type="text" name="descricao" />
+	  		</td>
+
+	  		</tr>
+
+		  <tr>
+		     <td>
 		     Telefone: 
 		     </td>
 			<td>
@@ -83,21 +93,22 @@ tr:nth-child(even) {
 	}
 
 	$nome = $_POST["nome"];
+	$descricao = $_POST["descricao"];
 	$latitude = $_POST["lat"];
 	$longitude = $_POST["long"];
 	$fone = $_POST["fone"];
 	$avaliacao = $_POST["aval"];
 
 
-	$SQL = "INSERT INTO local (nome, latitude, longitude, fone, avaliacao) VALUES 
-	('".$nome."', '".$latitude."',  '".$longitude."', 
+	$SQL = "INSERT INTO local (nome, descricao, latitude, longitude, fone, avaliacao) VALUES 
+	('".$nome."', '".$descricao."', '".$latitude."',  '".$longitude."', 
 	'".$fone."', '".$avaliacao."')";
 
 	
 
 
 	if ($link->query($SQL) === TRUE) {
-	    echo "Novo registro criado com sucesso.";
+	    echo "Cadastro realizado com sucesso.";
 	} else {
 	    echo "Error: " . $SQL . "<br>" . $link->error;
 	}
