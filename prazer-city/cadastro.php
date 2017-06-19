@@ -79,11 +79,17 @@ tr:nth-child(even) {
 
 <?php
 
+	require 'bancos/gerencia_bancos.php';
+	require 'utils/globals.php';
+
+
+	
+
 	if (!isset($_POST["nome"])){
 		exit;
 	}
 
-	$link = mysqli_connect("localhost", "root", "", "prazer-city");
+	$link = getBanco($ID_BANCO);
 	
 	if (!$link) {
 	    echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -92,12 +98,12 @@ tr:nth-child(even) {
 	    exit;
 	}
 
-	$nome = $_POST["nome"];
-	$descricao = $_POST["descricao"];
-	$latitude = $_POST["lat"];
-	$longitude = $_POST["long"];
-	$fone = $_POST["fone"];
-	$avaliacao = $_POST["aval"];
+	$nome = utf8_decode($_POST["nome"]);
+	$descricao = utf8_decode($_POST["descricao"]);
+	$latitude = utf8_decode($_POST["lat"]);
+	$longitude = utf8_decode($_POST["long"]);
+	$fone = utf8_decode($_POST["fone"]);
+	$avaliacao = utf8_decode($_POST["aval"]);
 
 
 	$SQL = "INSERT INTO local (nome, descricao, latitude, longitude, fone, avaliacao) VALUES 

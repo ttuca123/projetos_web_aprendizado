@@ -26,7 +26,11 @@ tr:nth-child(even) {
 
 <?php	
 
-	$link = mysqli_connect("localhost", "root", "", "prazer-city");
+    require 'bancos/gerencia_bancos.php';
+	require 'utils/globals.php';
+
+
+	$link = getBanco($ID_BANCO);	
 	
 	if (!$link) {
 	    echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -34,8 +38,6 @@ tr:nth-child(even) {
 	    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
 	    exit;
 	}
-
-
 
 
 	$SQL = "SELECT seq_local, nome, fone, latitude, longitude, avaliacao , descricao FROM local order by avaliacao desc, nome asc";	

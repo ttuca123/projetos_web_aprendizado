@@ -5,7 +5,11 @@
 		exit;
 	}
 
-	$link = mysqli_connect("localhost", "root", "", "prazer-city");
+	require 'bancos/gerencia_bancos.php';
+	require 'utils/globals.php';
+
+
+	$link = getBanco($ID_BANCO);
 	
 	if (!$link) {
 	    echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -18,10 +22,19 @@
 	$avaliacao = $_POST["aval"];
 
 
-	$SQL = "UPDATE local set  avaliacao = ".$avaliacao." WHERE seq_local='".$seqLocal."'";	
+	$sqlBuscarMedia = "SELECT avaliacao from local WHERE seq_local='".$seqLocal."'";	
+
+	$media = $link->query($sqlBuscarMedia);
+
+	$media = ($media+$seqLocal)/2;
+
+
+	$SQL = "UPDATE local set  avaliacao = ".$media." WHERE seq_local='".$seqLocal."'";	
 
 
 	if ($link->query($SQL) === TRUE) {
+	
+
 	    $retorno = array("retorno" => 'YES');
 	} else {
 	   $retorno = array("retorno" => 'NO');
