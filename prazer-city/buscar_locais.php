@@ -1,8 +1,3 @@
-<html>
-<head>
-<title>WebService</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
 <?php	
 
 	ini_set("default_charset", 'utf-8');
@@ -76,4 +71,4 @@
 
 	?>
 
-	</html>
+	
