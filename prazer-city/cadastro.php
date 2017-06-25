@@ -35,7 +35,7 @@ tr:nth-child(even) {
 		  </tr>
 		  <tr>
 		     <td>
-		     Decricao: 
+		     Descri&ccedil&atildeo: 
 		     </td>
 			<td>
 				<input type="text" name="descricao" />
@@ -68,7 +68,7 @@ tr:nth-child(even) {
 	  		</tr>
 
 	  		<tr>
-	  			<td>Avaliação: </td>
+	  			<td>Avalia&ccedil&atildeo: </td>
 				<td>
 				 <input type="text" name="aval" />
 				</td>

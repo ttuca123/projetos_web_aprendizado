@@ -56,11 +56,11 @@ tr:nth-child(even) {
 
 		<th>Sequencial</th>
 		<th>Nome</th>
-		<th>Descricao</th>
+		<th>Descri&ccedil&atildeo</th>
 		<th>Telefone</th>
 		<th>Latitude</th>
 		<th>Longitude</th>
-		<th>Avaliacao</th>		
+		<th>Avalia&ccedil&atildeo</th>		
 	<?php
 		  while($row = $resultado->fetch_assoc()) {
 		$retorno = array($row["seq_local"], $row["nome"], $row["fone"],

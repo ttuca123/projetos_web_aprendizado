@@ -24,12 +24,19 @@
 
 	$sqlBuscarMedia = "SELECT avaliacao from local WHERE seq_local='".$seqLocal."'";	
 
-	$media = $link->query($sqlBuscarMedia);
+	$media = $link->query($sqlBuscarMedia);	
 
-	$media = ($media+$seqLocal)/2;
+	$resultado;
 
+	while($row = $media->fetch_assoc()) {
+		
+		$resultado = (+$row["avaliacao"]+$avaliacao)/2;	
+		
 
-	$SQL = "UPDATE local set  avaliacao = ".$media." WHERE seq_local='".$seqLocal."'";	
+	}	
+	
+
+	$SQL = "UPDATE local set  avaliacao = ".$resultado." WHERE seq_local='".$seqLocal."'";	
 
 
 	if ($link->query($SQL) === TRUE) {
@@ -42,6 +49,8 @@
 
 
 	echo  json_encode($retorno);
+
+	
 	$link->close();
 
 	
