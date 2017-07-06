@@ -46,7 +46,7 @@ function sendFCM($action, $token,  $id_user, $contact_user, $nome_user, $photo_u
 	
 	$data = date("Y-m-d H:i:s");
 
-	$sql_verifica = 'SELECT id_usuario, nome_usuario, photo_usuario, token_usuario FROM usuarios WHERE email_usuario = "'.$email_user.'" ';
+	$sql_verifica = 'SELECT id_usuario, nome_usuario, photo_usuario, token_usuario FROM usuarios WHERE email_usuario = "'.$email_user.'"';
 	$exec_row = $conn->query($sql_verifica);
 
 	// Get Name User
@@ -59,7 +59,7 @@ function sendFCM($action, $token,  $id_user, $contact_user, $nome_user, $photo_u
 		$row = $exec_row->fetch_row();
 		$contact_user = $row[0];
 		$nome_usuario = $row[1];
-		$foto_usuario = "http://192.168.25.9/chat/".$row[2];
+		$foto_usuario = "http://192.168.25.9/projetos_web_aprendizado/chat/".$row[2];
 		$token_user = $row[3];
 
 		$sql_check = 'SELECT id FROM contatos WHERE (id_user = "'.$id_user.'" and contact_user = "'.$contact_user.'") or (id_user = "'.$contact_user.'" and contact_user = "'.$id_user.'")';
